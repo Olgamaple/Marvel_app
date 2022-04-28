@@ -9,10 +9,13 @@ class RandomChar extends Component {
         super(props);
         this.updateChar();
     }
+
     state = {
         char: {}
     }
+
     marvelService = new MarvelService();
+
     onCharLoaded = (char) => {
         this.setState({char : char})
     }
@@ -60,4 +63,5 @@ class RandomChar extends Component {
         )
     }
 }
+
 export default RandomChar;
