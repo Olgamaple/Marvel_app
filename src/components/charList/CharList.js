@@ -12,7 +12,7 @@ class CharList extends Component {
         error: false
     }
 
-    marvelService = new MarvelService;
+    marvelService = new MarvelService();
 
     componentDidMount() {
         this.marvelService.getAllCharacters()
@@ -36,15 +36,16 @@ class CharList extends Component {
 
     renderItems(arr) {
         const items = arr.map((item) => {
-            let imgStyle = {'objecFit' : 'cover'};
+            let imgStyle = {'objectFit' : 'cover'};
             if (item.thumbnail === 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
-                imgStyle = {'objecFit' : 'unset'};
+                imgStyle = {'objectFit' : 'unset'};
             }
+
             return (
                 <li
                 className="char__item"
                 key={item.id}>
-                    <img src={item.thumbnail} alt ={item.name} style={imgStyle}/>
+                    <img src={item.thumbnail} alt={item.name} style={imgStyle}/>
                     <div className="char__name">{item.name}</div>
                 </li>
             )
@@ -56,6 +57,7 @@ class CharList extends Component {
                 </ul>
         )
     }
+
     render() {
         const {charList, loading, error} = this.state;
         const items = this.renderItems(charList);
