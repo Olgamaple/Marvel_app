@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+
 import setContent from '../../utils/setContent';
 import useMarvelService from '../../services/MarvelService';
 import './charInfo.scss';
@@ -12,7 +13,8 @@ const CharInfo = (props) => {
     const {getCharacter, clearError, process, setProcess} = useMarvelService();
 
     useEffect(() => {
-        updateChar();
+        updateChar()
+        // eslint-disable-next-line
     }, [props.charId])
 
     const updateChar = () => {
@@ -37,6 +39,7 @@ const CharInfo = (props) => {
         </div>
     )
    }
+   
     const View = ({data}) => {
         const {name, description, thumbnail, homepage, wiki, comics} = data;
 
